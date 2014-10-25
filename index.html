@@ -38,7 +38,7 @@
         var tiltFB
         if (window.DeviceOrientationEvent) {
             window.addEventListener('deviceorientation', function(eventData) {
-                tiltFB = eventData.beta;
+                tiltFB = eventData;
             }, false);
         }
 
@@ -51,8 +51,8 @@
         window.setInterval(
             function(){
                 console.log(tiltFB);
-                $("#orientation").text(Math.floor(tiltFB)).toggleClass("upside-down",tiltFB < 0);
-                $("body").css("background-color", function(){return color(tiltFB)})
+                $("#orientation").text(JSON.stringify(tiltFB));//.toggleClass("upside-down",tiltFB < 0);
+                //$("body").css("background-color", function(){return color(tiltFB)})
             }, 
             500
         );
