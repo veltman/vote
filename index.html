@@ -51,7 +51,7 @@
         window.setInterval(
             function(){
                 console.log(tiltFB);
-                $("#orientation").text(JSON.stringify(tiltFB));//.toggleClass("upside-down",tiltFB < 0);
+                $("#orientation").text([tiltFB.beta,tiltFB.delta,tiltFB.gamma].join(","));//.toggleClass("upside-down",tiltFB < 0);
                 //$("body").css("background-color", function(){return color(tiltFB)})
             }, 
             500
