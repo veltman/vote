@@ -19,6 +19,12 @@
                 position: absolute;
                 text-align: center;
             }
+
+            .upside-down {
+                -ms-transform: rotate(180deg); /* IE 9 */
+                -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+                transform: rotate(180deg);
+            }
         </style>
     </head>
     <body>
@@ -45,7 +51,7 @@
         window.setInterval(
             function(){
                 console.log(tiltFB);
-                $("#orientation").text(Math.floor(tiltFB)) ;
+                $("#orientation").text(Math.floor(tiltFB)).toggleClass("upside-down",tiltFB < 0);
                 $("body").css("background-color", function(){return color(tiltFB)})
             }, 
             500
